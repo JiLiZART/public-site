@@ -46,7 +46,7 @@
         const date = new Date()
         const hours = date.getHours()
 
-        return hours >= 23 && hours <= 8
+        return hours >= 23 || hours <= 8
       }
     }
   }
