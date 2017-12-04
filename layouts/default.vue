@@ -2,47 +2,37 @@
   <div class="page" :class="classObject">
     <header class="header">
       <logo></logo>
-      <h1 class="page__h1">Николай Костюрин</h1>
-      <p class="page__description">Работаю Fullstack Разработчиком в
-        <a href="https://skyeng.ru/" target="_blank" rel="noopener noreferrer" class="page__link">Skyeng</a>
-        <br> По вечерам помогаю улучшать
-        <a href="http://rememba.ru" target="_blank" rel="noopener noreferrer" class="page__link">Ремембу</a>
-        <br>
-        <small class="page__small">
-          Раньше проектировал SPA в
-          <a href="https://www.medialooks.com" target="_blank" rel="noopener noreferrer" class="page__link">Medialooks</a>
-          и
-          создавал mobile first адаптивные сайты в
-          <a href="http://vivaster.com" target="_blank" rel="noopener noreferrer" class="page__link">VIVAster</a>
-        </small>
-      </p>
     </header>
     <nuxt/>
     <footer class="footer">
       <h3 class="page__h3">Со мной можно связаться</h3>
-      <p class="page__p">По скайпу <a class="page__link"
-                                      href="skype:jilizart?chat">JiLiZART</a>
-        или написать на почту <a class="page__link"
-                                 href="mailto:nikolay@artkost.ru">nikolay@artkost.ru</a>.
-      </p>
-      <p class="page__p">Так же я есть в <a href="https://twitter.com/jilizart" class="page__link">Twitter</a>, <a
-        href="https://ru.linkedin.com/in/nkostyurin" class="page__link">Linkedin</a>, <a
-        href="https://www.facebook.com/JiLiZART" class="page__link">Facebook</a>, <a
-        href="https://t.me/jilizart" class="page__link">Telegram</a> и <a
-        href="https://github.com/JiLiZART" class="page__link">Github</a></p>
-      <p class="page__p">Для HR у меня есть <a
-        href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing" class="page__link">CV</a>
-      </p>
+      <page-text>По скайпу <page-link href="skype:jilizart?chat">JiLiZART</page-link>
+        или написать на почту <page-link href="mailto:nikolay@artkost.ru">nikolay@artkost.ru</page-link>.
+      </page-text>
+      <page-text>Так же я есть в <page-link href="https://twitter.com/jilizart">Twitter</page-link>, <page-link
+        href="https://ru.linkedin.com/in/nkostyurin">Linkedin</page-link>, <page-link
+        href="https://www.facebook.com/JiLiZART">Facebook</page-link>, <page-link
+        href="https://t.me/jilizart">Telegram</page-link> и <page-link
+        href="https://github.com/JiLiZART">Github</page-link></page-text>
+      <page-text>Для HR у меня есть <page-link
+        href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</page-link>
+      </page-text>
     </footer>
     <img src="/stat.gif" alt="">
   </div>
 </template>
 <script>
   import Logo from '~/components/Logo.vue'
+  import PageLink from '~/components/PageLink.vue'
+  import PageText from '~/components/PageText.vue'
+  import PageDescription from '~/components/PageDescription.vue'
 
   export default {
     components: {
-      Logo
+      Logo,
+      PageLink,
+      PageText,
+      PageDescription
     },
 
     computed: {

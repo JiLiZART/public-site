@@ -1,5 +1,7 @@
 .idea/
 
+sw.*
+
 # dependencies
 node_modules
 
