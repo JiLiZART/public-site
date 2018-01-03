@@ -33,15 +33,6 @@
       PageLink,
       PageText,
       PageDescription
-    },
-
-    computed: {
-      isNightTime() {
-        const date = new Date()
-        const hours = date.getHours()
-
-        return hours >= 23 || hours <= 8
-      }
     }
   }
 </script>
@@ -161,6 +152,7 @@
         border-color rgba($linkHoverColor, .2)
         transition none
 
+    /*
     &_invert
       color lighten(invert($pageTextColor), 50%)
       background invert($pageBackgroundColor)
@@ -172,6 +164,7 @@
 
         &:visited
           color rgba(lighten($linkColor, 50%), .2)
+    */
 
   .list
     margin 0

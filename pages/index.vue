@@ -180,13 +180,10 @@
       margin-bottom 1rem
 
   .projects
-    &__item
-      @media screen and (min-width: $phoneBreakpoint)
-        display flex
-        align-items center
-
-    &__item-link
-    &__item-icon
+    .projects__item-link.projects__item-link
+    .projects__item-icon.projects__item-icon
+      display inline-block
+      vertical-align middle
       margin-right .25rem
 
 </style>
