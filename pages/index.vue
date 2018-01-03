@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="index-page">
     <h1 class="page__h1">Николай Костюрин</h1>
     <page-description>Работаю Fullstack Разработчиком в
       <page-link href="https://skyeng.ru/">Skyeng</page-link>
@@ -17,32 +17,11 @@
     <main class="main">
       <section class="main__col">
         <h3 class="page__h3">Мои поделки</h3>
-        <ul class="list">
-          <li class="list__item">
-            <page-link href="https://github.com/JiLiZART/sequence-as-promise">sequence as promise</page-link>
-            — выполняет массив функций
-            последовательно и возвращает промис
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/JiLiZART/may.js">may.js</page-link>
-            —
-            маленькая монадоподобная функция
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/w3gh/ghost.js">ghost.js</page-link>
-            — <s>хост</s> и чат бот для Battle.net/PvPGN для
-            Warcraft 3 на js
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/artkost/yii2-qa">yii2-qa</page-link>
-            — модуль
-            вопросов и ответов на Yii2
-          </li>
-
-          <li class="list__item">
-            <page-link href="https://github.com/jilizart/task-tracker">task-tracker</page-link>
-            — прототип таск
-            трекера на Vue2 для проверки бизнес идеи
+        <ul class="list projects">
+          <li class="list__item projects__item" v-for="item in githubProjects">
+            <github-favicon class="projects__item-icon"></github-favicon>
+            <page-link class="projects__item-link" :href="item.url">{{item.title}}</page-link>
+            <span class="projects__item-text" v-html="' — ' + item.text"></span>
           </li>
         </ul>
         <h3 class="page__h3">Пишу на Хабрахабр</h3>
@@ -83,6 +62,7 @@
       </section>
       <section class="main__col">
         <h3 class="page__h3">Что умею</h3>
+        <techs-logos class="index-page__techs"></techs-logos>
         <ul class="list">
           <li class="list__item">JavaScript ES5, ES6, TypeScript, Node.js</li>
           <li class="list__item">SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx</li>
@@ -143,26 +123,70 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
+  import GithubFavicon from '~/components/GithubFavicon.vue'
+  import TechsLogos from '~/components/TechsLogos.vue'
   import PageLink from '~/components/PageLink.vue'
   import PageDescription from '~/components/PageDescription.vue'
 
   export default {
     components: {
       Logo,
+      TechsLogos,
+      GithubFavicon,
       PageLink,
       PageDescription
+    },
+
+    data() {
+      return {
+        githubProjects: [
+          {
+            url: 'https://github.com/JiLiZART/sequence-as-promise',
+            title: 'sequence as promise',
+            text: 'выполняет массив функций последовательно и возвращает промис'
+          },
+          {
+            url: 'https://github.com/JiLiZART/may.js',
+            title: 'may.js',
+            text: 'маленькая монадоподобная функция'
+          },
+          {
+            url: 'https://github.com/w3gh/ghost.js',
+            title: 'ghost.js',
+            text: `<s>хост</s> и чат бот для Battle.net/PvPGN для Warcraft 3 на js`
+          },
+          {
+            url: 'https://github.com/artkost/yii2-qa',
+            title: 'yii2-qa',
+            text: 'модуль вопросов и ответов на Yii2'
+          },
+          {
+            url: 'https://github.com/jilizart/task-tracker',
+            title: 'task-tracker',
+            text: 'прототип таск трекера на Vue 2 для проверки бизнес идеи'
+          }
+        ]
+      }
     }
   }
 </script>
 
 <style lang="stylus">
+  $phoneBreakpoint = 700px
 
-  .list
-    margin 0
-    padding 0
-    list-style none
+  .index-page
+    &__techs
+      margin-top 1rem
+      margin-bottom 1rem
 
+  .projects
     &__item
-      margin-bottom .5rem
+      @media screen and (min-width: $phoneBreakpoint)
+        display flex
+        align-items center
+
+    &__item-link
+    &__item-icon
+      margin-right .25rem
 
 </style>
