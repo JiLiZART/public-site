@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="index-page">
     <h1 class="page__h1">Николай Костюрин</h1>
     <page-description>Работаю Fullstack Разработчиком в
       <page-link href="https://skyeng.ru/">Skyeng</page-link>
@@ -17,72 +17,24 @@
     <main class="main">
       <section class="main__col">
         <h3 class="page__h3">Мои поделки</h3>
-        <ul class="list">
-          <li class="list__item">
-            <page-link href="https://github.com/JiLiZART/sequence-as-promise">sequence as promise</page-link>
-            — выполняет массив функций
-            последовательно и возвращает промис
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/JiLiZART/may.js">may.js</page-link>
-            —
-            маленькая монадоподобная функция
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/w3gh/ghost.js">ghost.js</page-link>
-            — <s>хост</s> и чат бот для Battle.net/PvPGN для
-            Warcraft 3 на js
-          </li>
-          <li class="list__item">
-            <page-link href="https://github.com/artkost/yii2-qa">yii2-qa</page-link>
-            — модуль
-            вопросов и ответов на Yii2
-          </li>
-
-          <li class="list__item">
-            <page-link href="https://github.com/jilizart/task-tracker">task-tracker</page-link>
-            — прототип таск
-            трекера на Vue2 для проверки бизнес идеи
+        <ul class="list projects">
+          <li class="list__item projects__item" v-for="item in githubProjects">
+            <github-favicon class="projects__item-icon"></github-favicon>
+            <page-link class="projects__item-link" :href="item.url">{{item.title}}</page-link>
+            <span class="projects__item-text" v-html="' — ' + item.text"></span>
           </li>
         </ul>
         <h3 class="page__h3">Пишу на Хабрахабр</h3>
-        <ul class="list">
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/341564/">Управляем состоянием в Angular при помощи Mobx
-            </page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/329580/">Что нового нас ждет в Swift 4?</page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/282578/">Mobx — управление
-              состоянием вашего приложения
-            </page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/264423/">Изоморфное Приложение
-              с React и Redux
-            </page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/233705/">Настоящее модульное
-              тестирование в AngularJS
-            </page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/217689/">Ansible и Docker,
-              почему и зачем?
-            </page-link>
-          </li>
-          <li class="list__item">
-            <page-link href="https://habrahabr.ru/post/147038/">MVC умер, пришло время
-              MOVE
-            </page-link>
+        <ul class="list articles">
+          <li class="list__item articles__item" v-for="item in habrArticles">
+            <habr-favicon class="articles__item-icon"></habr-favicon>
+            <page-link class="articles__item-link" :href="item.url">{{item.title}}</page-link>
           </li>
         </ul>
       </section>
       <section class="main__col">
         <h3 class="page__h3">Что умею</h3>
+        <techs-logos class="index-page__techs"></techs-logos>
         <ul class="list">
           <li class="list__item">JavaScript ES5, ES6, TypeScript, Node.js</li>
           <li class="list__item">SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx</li>
@@ -143,26 +95,106 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
+  import GithubFavicon from '~/components/GithubFavicon.vue'
+  import HabrFavicon from '~/components/HabrFavicon.vue'
+  import TechsLogos from '~/components/TechsLogos.vue'
   import PageLink from '~/components/PageLink.vue'
   import PageDescription from '~/components/PageDescription.vue'
 
   export default {
     components: {
       Logo,
+      TechsLogos,
+      GithubFavicon,
+      HabrFavicon,
       PageLink,
       PageDescription
+    },
+
+    data() {
+      return {
+        githubProjects: [
+          {
+            url: 'https://github.com/JiLiZART/sequence-as-promise',
+            title: 'sequence as promise',
+            text: 'выполняет массив функций последовательно и возвращает промис'
+          },
+          {
+            url: 'https://github.com/JiLiZART/may.js',
+            title: 'may.js',
+            text: 'маленькая монадоподобная функция'
+          },
+          {
+            url: 'https://github.com/w3gh/ghost.js',
+            title: 'ghost.js',
+            text: `<s>хост</s> и чат бот для Battle.net/PvPGN для Warcraft 3 на js`
+          },
+          {
+            url: 'https://github.com/artkost/yii2-qa',
+            title: 'yii2-qa',
+            text: 'модуль вопросов и ответов на Yii2'
+          },
+          {
+            url: 'https://github.com/jilizart/task-tracker',
+            title: 'task-tracker',
+            text: 'прототип таск трекера на Vue 2 для проверки бизнес идеи'
+          }
+        ],
+        habrArticles: [
+          {
+            url: 'https://habrahabr.ru/post/341564/',
+            title: 'Управляем состоянием в Angular при помощи Mobx'
+          },
+          {
+            url: 'https://habrahabr.ru/post/329580/',
+            title: 'Что нового нас ждет в Swift 4?'
+          },
+          {
+            url: 'https://habrahabr.ru/post/282578/',
+            title: 'Mobx — управление состоянием вашего приложения'
+          },
+          {
+            url: 'https://habrahabr.ru/post/264423/',
+            title: 'Изоморфное Приложение с React и Redux'
+          },
+          {
+            url: 'https://habrahabr.ru/post/233705/',
+            title: 'Настоящее модульное тестирование в AngularJS'
+          },
+          {
+            url: 'https://habrahabr.ru/post/217689/',
+            title: 'Ansible и Docker, почему и зачем?'
+          },
+          {
+            url: 'https://habrahabr.ru/post/147038/',
+            title: 'MVC умер, пришло время MOVE'
+          }
+        ]
+      }
     }
   }
 </script>
 
 <style lang="stylus">
+  $phoneBreakpoint = 700px
 
-  .list
-    margin 0
-    padding 0
-    list-style none
+  .index-page
+    &__techs
+      margin-top 1rem
+      margin-bottom 1rem
 
-    &__item
-      margin-bottom .5rem
+  .projects
+    .projects__item-link.projects__item-link
+    .projects__item-icon.projects__item-icon
+      display inline-block
+      vertical-align middle
+      margin-right .25rem
+
+  .articles
+    .articles__item-link.articles__item-link
+    .articles__item-icon.articles__item-icon
+      display inline-block
+      vertical-align middle
+      margin-right .25rem
 
 </style>

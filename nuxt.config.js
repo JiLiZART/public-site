@@ -67,7 +67,18 @@ module.exports = {
     lang: 'ru'
   },
 
+  /*
+  generate: {
+    routes() {
+      return require('fs')
+        .readdirSync('blog').map(
+          (file) => '/blog/' + require('slugify')(file.replace(/\.md$/, ''))
+        )
+    }
+  },
+  */
+
   modules: [
     '@nuxtjs/pwa'
   ]
-}
+};

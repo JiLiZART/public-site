@@ -1,5 +1,5 @@
 <template>
-  <div class="page" :class="classObject">
+  <div class="page" ref="page">
     <header class="header">
       <logo></logo>
     </header>
@@ -33,21 +33,6 @@
       PageLink,
       PageText,
       PageDescription
-    },
-
-    computed: {
-      classObject() {
-        return {
-          'page_invert': this.isNightTime
-        }
-      },
-
-      isNightTime() {
-        const date = new Date()
-        const hours = date.getHours()
-
-        return hours >= 23 || hours <= 8
-      }
     }
   }
 </script>
@@ -94,29 +79,40 @@
     transition-duration .33s
     transition-timing-function ease-out
 
+    &__text
+      margin 0
+      margin-bottom 0.5rem
+
     &__h1,
     &__h2,
-    &__h3
+    &__h3,
+    &__text h1,
+    &__text h2,
+    &__text h3
       margin 0
       margin-top 1rem
       margin-bottom 1rem
 
-    &__h1
+    &__h1,
+    &__text h1
       font-size 2.25rem
       font-weight 400
 
       @media screen and (min-width: $phoneBreakpoint)
         font-size 3.875rem
 
-    &__h2
+    &__h2,
+    &__text h2
       font-size 2.25rem
       font-weight 400
 
-    &__h3
+    &__h3,
+    &__text h3
       font-size 1.625rem
       font-weight 500
 
-    &__p
+    &__p,
+    &__text p
       margin 0
       margin-bottom 0.5rem
 
@@ -156,6 +152,7 @@
         border-color rgba($linkHoverColor, .2)
         transition none
 
+    /*
     &_invert
       color lighten(invert($pageTextColor), 50%)
       background invert($pageBackgroundColor)
@@ -167,5 +164,14 @@
 
         &:visited
           color rgba(lighten($linkColor, 50%), .2)
+    */
+
+  .list
+    margin 0
+    padding 0
+    list-style none
+
+    &__item
+      margin-bottom .5rem
 
 </style>

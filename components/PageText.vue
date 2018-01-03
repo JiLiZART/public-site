@@ -1,13 +1,13 @@
 <template>
-  <p class="page__p">
+  <div class="page__text">
     <slot></slot>
-  </p>
+  </div>
 </template>
 
 <script>
   export default {
     name: 'PageText',
-    props: {},
+    props: ['text'],
     components: {}
   }
 </script>
