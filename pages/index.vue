@@ -1,22 +1,20 @@
 <template>
   <section class="index-page">
-    <h1 class="page__h1">Николай Костюрин</h1>
-    <page-description>Работаю Fullstack Разработчиком в
-      <page-link href="https://skyeng.ru/">Skyeng</page-link>
+    <h1 class="page__h1" itemprop="name">Николай Костюрин</h1>
+    <page-description>Работаю React Разработчиком в
+      <page-link href="https://www.ultimate-guitar.com/">Ultimate Guitar</page-link> 🎸
       <br> По вечерам помогаю улучшать
-      <page-link href="http://rememba.ru">Ремембу</page-link>
+      <page-link href="http://rememba.ru">Ремембу</page-link> 🦄
       <br>
-      <small class="page__small">
-        Раньше проектировал SPA в
-        <page-link href="https://www.medialooks.com">Medialooks</page-link>
-        и
-        создавал mobile first адаптивные сайты в
-        <page-link href="http://vivaster.com">VIVAster</page-link>
-      </small>
+      <span class="page__text page__text_gray page__text_small">
+        Раньше проходил стажировку в <page-link href="https://skyeng.ru/">Skyeng</page-link> 👷,
+        проектировал SPA в <page-link href="https://www.medialooks.com">Medialooks</page-link> 👨‍🏫 и
+        создавал mobile first адаптивные сайты в <page-link href="http://vivaster.com">VIVAster</page-link> 👨‍💻
+      </span>
     </page-description>
     <main class="main">
       <section class="main__col">
-        <h3 class="page__h3">Мои поделки</h3>
+        <h3 class="page__h3">Мои поделки 💼</h3>
         <ul class="list projects">
           <li class="list__item projects__item" v-for="item in githubProjects">
             <github-favicon class="projects__item-icon"></github-favicon>
@@ -24,7 +22,7 @@
             <span class="projects__item-text" v-html="' — ' + item.text"></span>
           </li>
         </ul>
-        <h3 class="page__h3">Пишу на Хабрахабр</h3>
+        <h3 class="page__h3">Пишу на Хабрахабр 📝</h3>
         <ul class="list articles">
           <li class="list__item articles__item" v-for="item in habrArticles">
             <habr-favicon class="articles__item-icon"></habr-favicon>
@@ -33,25 +31,25 @@
         </ul>
       </section>
       <section class="main__col">
-        <h3 class="page__h3">Что умею</h3>
+        <h3 class="page__h3">Что умею ✅</h3>
         <techs-logos class="index-page__techs"></techs-logos>
-        <ul class="list">
-          <li class="list__item">JavaScript ES5, ES6, TypeScript, Node.js</li>
-          <li class="list__item">SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx</li>
-          <li class="list__item">REST API на Express, Koa, Yii по
+        <ul class="list list_bullets">
+          <li class="list__item" itemprop="keywords">JavaScript ES5, ES6, TypeScript, Node.js</li>
+          <li class="list__item" itemprop="keywords">SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx</li>
+          <li class="list__item" itemprop="keywords">REST API на Express, Koa, Yii по
             <page-link href="http://jsonapi.org/">http://jsonapi.org/</page-link>
             стандарт используя
             <page-link href="http://json-schema.org/">http://json-schema.org/</page-link>
             и
             <page-link href="https://jwt.io/">https://jwt.io/</page-link>
           </li>
-          <li class="list__item">Полный стек БЭМ (Который у Яндекса), bem.js, bemjson, bh.js, bemtree</li>
-          <li class="list__item">HTML5, CSS3, Stylus, Less, Sass, PostCSS и БЭМ методология</li>
-          <li class="list__item">PHP 5/7, Yii1, Yii2</li>
-          <li class="list__item">Сборщики Gulp, Grunt, Webpack 3 и ENB</li>
+          <li class="list__item" itemprop="keywords">Полный стек БЭМ (Который у Яндекса), bem.js, bemjson, bh.js, bemtree</li>
+          <li class="list__item" itemprop="keywords">HTML5, CSS3, Stylus, Less, Sass, PostCSS и БЭМ методология</li>
+          <li class="list__item" itemprop="keywords">PHP 5/7, Yii1, Yii2</li>
+          <li class="list__item" itemprop="keywords">Сборщики Gulp, Grunt, Webpack 3 и ENB</li>
           <li class="list__item">jQuery, ну а как без него?</li>
         </ul>
-        <h3 class="page__h3">Что изучаю</h3>
+        <h3 class="page__h3">Что изучаю 👨‍🎓</h3>
         <ul class="list">
           <li class="list__item">Книгу
             <page-link
