@@ -79,6 +79,9 @@ module.exports = {
   */
 
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-10741741-2'
+    }]
   ]
-};
+}
