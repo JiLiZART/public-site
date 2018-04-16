@@ -1,5 +1,5 @@
 <template>
-  <section class="index-page">
+  <section class="index-page" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <h1 class="page__h1" itemprop="name">Николай Костюрин</h1>
     <page-description>Работаю React Разработчиком в
       <page-link href="https://www.ultimate-guitar.com/">Ultimate Guitar</page-link> 🎸

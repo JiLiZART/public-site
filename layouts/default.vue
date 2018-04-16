@@ -20,6 +20,23 @@
       </page-text>
     </footer>
     <img src="/stat.gif" alt="">
+    <!-- Yandex.Metrika counter -->
+    <script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      try {
+        var yaCounter860366 = new Ya.Metrika({
+          id: 860366,
+          clickmap: true,
+          trackLinks: true,
+          accurateTrackBounce: true
+        });
+      } catch (e) {
+      }
+    </script>
+    <noscript>
+      <div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
   </div>
 </template>
 <script>
