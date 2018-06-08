@@ -1,7 +1,7 @@
 <template>
   <section class="index-page" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <h1 class="page__h1" itemprop="name">Николай Костюрин</h1>
-    <page-description>Работаю React Разработчиком в
+    <page-description>Работаю JavaScript Разработчиком в
       <page-link href="https://www.ultimate-guitar.com/">Ultimate Guitar</page-link> 🎸
       <br> По вечерам помогаю улучшать
       <page-link href="http://rememba.ru">Ремембу</page-link> 🦄

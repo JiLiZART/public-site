@@ -24,12 +24,13 @@
     <script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
     <script type="text/javascript">
       try {
+        // eslint-disable-next-line no-unused-vars,no-undef
         var yaCounter860366 = new Ya.Metrika({
           id: 860366,
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true
-        });
+        })
       } catch (e) {
       }
     </script>
