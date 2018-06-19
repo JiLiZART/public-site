@@ -1,6 +1,6 @@
 <template>
   <div class="avatar">
-    <amp-img :src="url" :alt="name" class="avatar__image">
+    <img :src="url" :alt="name" class="avatar__image" />
   </div>
 </template>
 

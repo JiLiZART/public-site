@@ -1,13 +1,6 @@
 const modifyHtml = (html) => {
-  // Add amp-custom tag to added CSS
-  html = html.replace(/<style data-vue-ssr/g, '<style amp-custom data-vue-ssr');
   // Remove every script tag from generated HTML
   html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-  // Add AMP script before </head>
-  const ampScript = '<script async src="https://cdn.ampproject.org/v0.js"></script>';
-  const ampAnalytics = '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>';
-
-  html = html.replace('</head>', ampScript + ampAnalytics + '</head>');
 
   return html
 };
@@ -105,5 +98,11 @@ module.exports = {
     'render:route': (url, page, { req, res }) => {
       page.html = modifyHtml(page.html)
     }
-  }
+  },
+
+  modules: [
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-10741741-2'
+    }]
+  ]
 };

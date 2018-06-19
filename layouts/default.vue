@@ -19,22 +19,8 @@
         href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</PageLink>
       </PageText>
     </footer>
-    <amp-img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
-    <amp-analytics type="googleanalytics">
-      <script type="application/json">
-        {
-          "vars": {
-            "account": "UA-10741741-2"
-          },
-          "triggers": {
-            "trackPageview": {
-              "on": "visible",
-              "request": "pageview"
-            }
-          }
-        }
-      </script>
-    </amp-analytics>
+    <img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
+    <noscript><div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   </div>
 </template>
 <script>
@@ -56,8 +42,6 @@
 </script>
 
 <style lang="stylus">
-  @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700');
-
   $linkColor = hsl(210, 100%, 29%)
   $linkHoverColor = hsl(12, 87%, 45%)
 
