@@ -1,3 +1,17 @@
+const modifyHtml = (html) => {
+  // Add amp-custom tag to added CSS
+  html = html.replace(/<style data-vue-ssr/g, '<style amp-custom data-vue-ssr');
+  // Remove every script tag from generated HTML
+  html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  // Add AMP script before </head>
+  const ampScript = '<script async src="https://cdn.ampproject.org/v0.js"></script>';
+  const ampAnalytics = '<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>';
+
+  html = html.replace('</head>', ampScript + ampAnalytics + '</head>');
+
+  return html
+};
+
 module.exports = {
   /*
   ** Headers of the page
@@ -42,7 +56,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: {color: '#723014'},
+  // loading: {color: '#723014'},
   /*
   ** Build configuration
   */
@@ -51,7 +65,7 @@ module.exports = {
     ** Run ESLint on save
     */
     extend(config, ctx) {
-      if (ctx.dev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -77,11 +91,19 @@ module.exports = {
     }
   },
   */
-
-  modules: [
-    // '@nuxtjs/pwa',
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-10741741-2'
-    }]
-  ]
-}
+  loading: false, // Disable loading bar since AMP will not generate a dynamic page
+  render: {
+    // Disable resourceHints since we don't load any scripts for AMP
+    resourceHints: false
+  },
+  hooks: {
+    // This hook is called before generatic static html files for SPA mode
+    'generate:page': (page) => {
+      page.html = modifyHtml(page.html)
+    },
+    // This hook is called before rendering the html to the browser
+    'render:route': (url, page, { req, res }) => {
+      page.html = modifyHtml(page.html)
+    }
+  }
+};

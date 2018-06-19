@@ -1,47 +1,45 @@
 <template>
   <div class="page" ref="page" itemref="data-author" itemscope itemtype="http://schema.org/WebSite">
     <header class="header">
-      <logo></logo>
+      <Logo></Logo>
     </header>
-    <nuxt/>
+    <main><nuxt /></main>
     <footer class="footer" id="data-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <h3 class="page__h3">Со мной можно связаться 🤙</h3>
+      <HeadingSecondary>Со мной можно связаться 🤙</HeadingSecondary>
       <meta itemprop="name" content="Николай Костюрин">
-      <page-text>По скайпу <page-link href="skype:jilizart?chat" itemprop="skype">JiLiZART</page-link>
-        или написать на почту <page-link href="mailto:nikolay@artkost.ru" itemprop="email">nikolay@artkost.ru</page-link>.
-      </page-text>
-      <page-text>Так же я есть в <page-link href="https://twitter.com/jilizart" itemprop="twitter">Twitter</page-link>, <page-link
-        href="https://ru.linkedin.com/in/nkostyurin" itemprop="linkedin">Linkedin</page-link>, <page-link
-        href="https://www.facebook.com/JiLiZART" itemprop="facebook">Facebook</page-link>, <page-link
-        href="https://t.me/jilizart" itemprop="telegram">Telegram</page-link> и <page-link
-        href="https://github.com/JiLiZART" itemprop="github">Github</page-link></page-text>
-      <page-text>Для HR у меня есть <page-link
-        href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</page-link>
-      </page-text>
+      <PageText>По скайпу <PageLink href="skype:jilizart?chat" itemprop="skype">JiLiZART</PageLink>
+        или написать на почту <PageLink href="mailto:nikolay@artkost.ru" itemprop="email">nikolay@artkost.ru</PageLink>.
+      </PageText>
+      <PageText>Так же я есть в <PageLink href="https://twitter.com/jilizart" itemprop="twitter">Twitter</PageLink>, <PageLink
+        href="https://ru.linkedin.com/in/nkostyurin" itemprop="linkedin">Linkedin</PageLink>, <PageLink
+        href="https://www.facebook.com/JiLiZART" itemprop="facebook">Facebook</PageLink>, <PageLink
+        href="https://t.me/jilizart" itemprop="telegram">Telegram</PageLink> и <PageLink
+        href="https://github.com/JiLiZART" itemprop="github">Github</PageLink></PageText>
+      <PageText>Для HR у меня есть <PageLink
+        href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</PageLink>
+      </PageText>
     </footer>
-    <img src="/stat.gif" alt="">
-    <!-- Yandex.Metrika counter -->
-    <script src="https://mc.yandex.ru/metrika/watch.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      try {
-        // eslint-disable-next-line no-unused-vars,no-undef
-        var yaCounter860366 = new Ya.Metrika({
-          id: 860366,
-          clickmap: true,
-          trackLinks: true,
-          accurateTrackBounce: true
-        })
-      } catch (e) {
-      }
-    </script>
-    <noscript>
-      <div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt=""/></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
+    <amp-img src="/stat.gif" alt="Stats pixel" layout="responsive" height="1px" width="1px" />
+    <amp-analytics type="googleanalytics">
+      <script type="application/json">
+        {
+          "vars": {
+            "account": "UA-10741741-2"
+          },
+          "triggers": {
+            "trackPageview": {
+              "on": "visible",
+              "request": "pageview"
+            }
+          }
+        }
+      </script>
+    </amp-analytics>
   </div>
 </template>
 <script>
   import Logo from '~/components/Logo.vue'
+  import HeadingSecondary from '~/components/HeadingSecondary'
   import PageLink from '~/components/PageLink.vue'
   import PageText from '~/components/PageText.vue'
   import PageDescription from '~/components/PageDescription.vue'
@@ -51,7 +49,8 @@
       Logo,
       PageLink,
       PageText,
-      PageDescription
+      PageDescription,
+      HeadingSecondary
     }
   }
 </script>
@@ -144,7 +143,7 @@
 
       @media screen and (min-width: $phoneBreakpoint)
         font-size 2.25rem
-        max-width 925px
+        max-width 950px
 
     &__text_small
       font-size 1rem
@@ -161,7 +160,6 @@
     &__link
       color $linkColor
       fill $linkColor
-      border-bottom 1px solid rgba($linkColor, .2)
       text-decoration none
       transition-property border-bottom, border-color, background, color, fill
       transition-duration .33s
