@@ -19,7 +19,7 @@
         href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</PageLink>
       </PageText>
     </footer>
-    <amp-img src="/stat.gif" alt="Stats pixel" layout="responsive" height="1px" width="1px" />
+    <amp-img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
     <amp-analytics type="googleanalytics">
       <script type="application/json">
         {
