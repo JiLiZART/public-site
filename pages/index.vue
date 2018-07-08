@@ -113,6 +113,11 @@
       return {
         githubProjects: [
           {
+            url: 'https://github.com/JiLiZART/bbob',
+            title: 'BBob',
+            text: 'быстрый парсер BB кодов в AST дерево, без регулярок и зависимостей'
+          },
+          {
             url: 'https://github.com/JiLiZART/sequence-as-promise',
             title: 'sequence as promise',
             text: 'выполняет массив функций последовательно и возвращает промис'
