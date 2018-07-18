@@ -80,7 +80,7 @@
               Lean Startup</s></page-link>
           </li>
           <li class="list__item">А еще решаю непростые задачки нa
-            <page-link href="https://www.codewars.com/users/JiLiZART">Codewars</page-link>
+            <page-link href="https://www.codewars.com/users/JiLiZART">Codewars <img src="https://www.codewars.com/users/JiLiZART/badges/micro" alt="Codewards Badge" /></page-link><br />
             и
             <page-link href="https://www.hackerrank.com/JiLiZART">Hackerrank</page-link>
             с помощью js и Swift
