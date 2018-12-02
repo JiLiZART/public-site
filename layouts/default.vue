@@ -4,27 +4,15 @@
       <Logo></Logo>
     </header>
     <main><nuxt /></main>
-    <footer class="footer" id="data-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <HeadingSecondary>Со мной можно связаться 🤙</HeadingSecondary>
-      <meta itemprop="name" content="Николай Костюрин">
-      <PageText>По скайпу <PageLink href="skype:jilizart?chat" itemprop="skype">JiLiZART</PageLink>
-        или написать на почту <PageLink href="mailto:nikolay@artkost.ru" itemprop="email">nikolay@artkost.ru</PageLink>.
-      </PageText>
-      <PageText>Так же я есть в <PageLink href="https://twitter.com/jilizart" itemprop="twitter">Twitter</PageLink>, <PageLink
-        href="https://ru.linkedin.com/in/nkostyurin" itemprop="linkedin">Linkedin</PageLink>, <PageLink
-        href="https://www.facebook.com/JiLiZART" itemprop="facebook">Facebook</PageLink>, <PageLink
-        href="https://t.me/jilizart" itemprop="telegram">Telegram</PageLink> и <PageLink
-        href="https://github.com/JiLiZART" itemprop="github">Github</PageLink></PageText>
-      <PageText>Для HR у меня есть <PageLink
-        href="https://docs.google.com/document/d/17mfG-_zVQLGED9dctMpNRMUt4efhVaIc2YKm0k5DJyo/edit?usp=sharing">CV</PageLink>
-      </PageText>
-    </footer>
+    <Footer></Footer>
     <img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
     <noscript><div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
   </div>
 </template>
 <script>
   import Logo from '~/components/Logo.vue'
+  import Footer from '~/components/Footer.vue'
+  import PrimaryMenu from '~/components/PrimaryMenu.vue'
   import HeadingSecondary from '~/components/HeadingSecondary'
   import PageLink from '~/components/PageLink.vue'
   import PageText from '~/components/PageText.vue'
@@ -33,10 +21,18 @@
   export default {
     components: {
       Logo,
+      Footer,
       PageLink,
       PageText,
       PageDescription,
-      HeadingSecondary
+      HeadingSecondary,
+      PrimaryMenu
+    },
+
+    data() {
+      return {
+
+      }
     }
   }
 </script>
@@ -61,10 +57,9 @@
     -moz-osx-font-smoothing auto
 
   .header
+    display flex
+    align-items center
     padding-top 1rem
-
-    @media screen and (min-width: $phoneBreakpoint)
-      padding-top 3rem
 
   .main
     display flex
@@ -157,6 +152,9 @@
         fill $linkHoverColor
         border-color rgba($linkHoverColor, .2)
         transition none
+
+      &.nuxt-link-exact-active
+        color darken($linkColor, 50%)
 
     /*
     &_invert

@@ -80,7 +80,7 @@
               Lean Startup</s></page-link>
           </li>
           <li class="list__item">А еще решаю непростые задачки нa
-            <page-link href="https://www.codewars.com/users/JiLiZART">Codewars <img src="https://www.codewars.com/users/JiLiZART/badges/micro" alt="Codewards Badge" /></page-link><br />
+            <page-link href="https://www.codewars.com/users/JiLiZART">Codewars <span class="badge" :style="badgeStyle" title="Codewards Badge" ></span></page-link><br />
             и
             <page-link href="https://www.hackerrank.com/JiLiZART">Hackerrank</page-link>
             с помощью js и Swift
@@ -172,7 +172,10 @@
             url: 'https://habrahabr.ru/post/147038/',
             title: 'MVC умер, пришло время MOVE'
           }
-        ]
+        ],
+        badgeStyle: {
+          backgroundImage: 'url(https://www.codewars.com/users/JiLiZART/badges/micro)'
+        }
       }
     }
   }
@@ -199,5 +202,11 @@
       display inline-block
       vertical-align middle
       margin-right .25rem
+
+  .badge
+    height 20px
+    width 120px
+    display inline-block
+    vertical-align top
 
 </style>

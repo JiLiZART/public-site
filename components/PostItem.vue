@@ -3,7 +3,7 @@
     <header class="post-item__header">
       <page-date class="post-item__date" :time="item.created_at"></page-date>
       <h2 class="page__h2 post-item__title">
-        <page-link class="post-item__title-link" to="post">
+        <page-link class="post-item__title-link" :to="{ name: 'blog-slug', params: { slug: 'test-file' }}">
           {{item.title}}
         </page-link>
       </h2>

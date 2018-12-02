@@ -1,5 +1,5 @@
 <template>
-  <a class="logo" title="artkost"></a>
+  <span class="logo" title="artkost"></span>
 </template>
 
 <style lang="stylus">

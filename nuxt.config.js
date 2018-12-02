@@ -1,6 +1,16 @@
 const modifyHtml = (html) => {
   // Remove every script tag from generated HTML
-  html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  // html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+
+  html = html.replace('<head>', `<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10741741-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-10741741-2');
+</script>`)
 
   return html
 };
@@ -14,6 +24,9 @@ module.exports = {
   */
   head: {
     title: 'Николай Костюрин — artkost',
+    htmlAttrs: {
+      lang: 'ru'
+    },
     meta: [
       {charset: 'utf-8'},
 
@@ -74,7 +87,6 @@ module.exports = {
     lang: 'ru'
   },
 
-  /*
   generate: {
     routes() {
       return require('fs')
@@ -83,7 +95,7 @@ module.exports = {
         )
     }
   },
-  */
+
   loading: false, // Disable loading bar since AMP will not generate a dynamic page
   render: {
     // Disable resourceHints since we don't load any scripts for AMP

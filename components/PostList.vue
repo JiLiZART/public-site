@@ -21,6 +21,8 @@
 
   .{$ctx}
     display block
+    max-width 630px
+    margin-top: 1rem
 
     .{$ctx}__item
       margin-bottom 2rem
