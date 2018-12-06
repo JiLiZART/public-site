@@ -2,7 +2,9 @@ const modifyHtml = (html) => {
   // Remove every script tag from generated HTML
   html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 
-  html = html.replace('<head>', `<head><!-- Global site tag (gtag.js) - Google Analytics -->
+  html = html.replace('<head>', `<head>
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-10741741-2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
