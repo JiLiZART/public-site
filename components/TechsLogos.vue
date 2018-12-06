@@ -1,21 +1,21 @@
 <template>
-  <div class="techs-logos">
-    <span class="techs-logos__icon techs-logos__icon_js" title="Javascript"></span>
-    <span class="techs-logos__icon techs-logos__icon_node" title="Node.js"></span>
-    <span class="techs-logos__icon techs-logos__icon_react" title="React"></span>
-    <span class="techs-logos__icon techs-logos__icon_vue" title="Vue 2"></span>
-    <span class="techs-logos__icon techs-logos__icon_ng4" title="Angular 4"></span>
-    <span class="techs-logos__icon techs-logos__icon_bem" title="BEM"></span>
-    <span class="techs-logos__icon techs-logos__icon_html5" title="HTML5"></span>
-    <span class="techs-logos__icon techs-logos__icon_css3" title="CSS3"></span>
-    <span class="techs-logos__icon techs-logos__icon_stylus" title="Stylus"></span>
-    <span class="techs-logos__icon techs-logos__icon_less" title="Less"></span>
-    <span class="techs-logos__icon techs-logos__icon_sass" title="Sass"></span>
-    <span class="techs-logos__icon techs-logos__icon_php" title="PHP 5/7"></span>
-    <span class="techs-logos__icon techs-logos__icon_yii" title="Yii2"></span>
-    <span class="techs-logos__icon techs-logos__icon_gulp" title="Gulp"></span>
-    <span class="techs-logos__icon techs-logos__icon_webpack" title="Webpack 3"></span>
-    <span class="techs-logos__icon techs-logos__icon_jquery" title="jQuery"></span>
+  <div class="techs-logos" aria-label="Спсисок технологий которые знаю" role="list" tab-index="">
+    <span class="techs-logos__icon techs-logos__icon_js" role="listitem" title="Javascript"></span>
+    <span class="techs-logos__icon techs-logos__icon_node" role="listitem" title="Node.js"></span>
+    <span class="techs-logos__icon techs-logos__icon_react" role="listitem" title="React"></span>
+    <span class="techs-logos__icon techs-logos__icon_vue" role="listitem" title="Vue 2"></span>
+    <span class="techs-logos__icon techs-logos__icon_ng4" role="listitem" title="Angular 4"></span>
+    <span class="techs-logos__icon techs-logos__icon_bem" role="listitem" title="BEM"></span>
+    <span class="techs-logos__icon techs-logos__icon_html5" role="listitem" title="HTML5"></span>
+    <span class="techs-logos__icon techs-logos__icon_css3" role="listitem" title="CSS3"></span>
+    <span class="techs-logos__icon techs-logos__icon_stylus" role="listitem" title="Stylus"></span>
+    <span class="techs-logos__icon techs-logos__icon_less" role="listitem" title="Less"></span>
+    <span class="techs-logos__icon techs-logos__icon_sass" role="listitem" title="Sass"></span>
+    <span class="techs-logos__icon techs-logos__icon_php" role="listitem" title="PHP 5/7"></span>
+    <span class="techs-logos__icon techs-logos__icon_yii" role="listitem" title="Yii2"></span>
+    <span class="techs-logos__icon techs-logos__icon_gulp" role="listitem" title="Gulp"></span>
+    <span class="techs-logos__icon techs-logos__icon_webpack" role="listitem" title="Webpack 3"></span>
+    <span class="techs-logos__icon techs-logos__icon_jquery" role="listitem" title="jQuery"></span>
   </div>
 </template>
 

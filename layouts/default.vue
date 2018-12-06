@@ -1,9 +1,9 @@
 <template>
   <div class="page" ref="page" itemref="data-author" itemscope itemtype="http://schema.org/WebSite">
-    <header class="header">
+    <header class="header" aria-hidden="true">
       <Logo></Logo>
     </header>
-    <main><nuxt /></main>
+    <nuxt />
     <Footer></Footer>
     <img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
     <noscript><div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>

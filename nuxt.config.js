@@ -23,7 +23,7 @@ module.exports = {
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
   */
   head: {
-    title: 'Николай Костюрин — artkost',
+    title: 'Николай Костюрин — JavaScript Разработчк',
     htmlAttrs: {
       lang: 'ru'
     },
@@ -83,7 +83,7 @@ module.exports = {
   },
 
   manifest: {
-    name: 'Николай Костюрин — artkost',
+    name: 'Николай Костюрин — JavaScript Разработчк',
     lang: 'ru'
   },
 

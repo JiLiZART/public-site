@@ -1,91 +1,122 @@
 <template>
   <section class="index-page" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <h1 class="page__h1" itemprop="name">Николай Костюрин</h1>
-    <page-description>Работаю JavaScript Разработчиком в
-      <page-link href="https://www.ultimate-guitar.com/">Ultimate Guitar</page-link> 🎸
-      <br> По вечерам помогаю улучшать
-      <page-link href="http://rememba.ru">Ремембу</page-link> 🦄
-      <br>
-      <span class="page__text page__text_gray page__text_small">
-        Раньше проходил стажировку в <page-link href="https://skyeng.ru/">Skyeng</page-link> 👷,
-        проектировал SPA в <page-link href="https://www.medialooks.com">Medialooks</page-link> 👨‍🏫 и
-        создавал mobile first адаптивные сайты в <page-link href="http://vivaster.com">VIVAster</page-link> 👨‍💻
+    <header role="banner" tabindex="1">
+      <h1 class="page__h1" itemprop="name">Николай Костюрин</h1>
+      <page-description>Работаю JavaScript Разработчиком в
+        <page-link href="https://www.ultimate-guitar.com/" aria-label="Компания Ultimate Guitar">Ultimate Guitar
+        </page-link>
+        <span aria-hidden="true">🎸</span>
+        <br> По вечерам помогаю улучшать
+        <page-link href="http://rememba.ru" aria-label="Проект Ремемба">Ремембу</page-link>
+        <span aria-hidden="true">🦄</span>
+        <br>
+        <span class="page__text page__text_gray page__text_small">
+        Раньше проходил стажировку в <page-link href="https://skyeng.ru/" aria-label="Skyeng">Skyeng</page-link> 👷,
+        проектировал SPA в <page-link href="https://www.medialooks.com" aria-label="Medialooks">Medialooks</page-link> 👨‍🏫 и
+        создавал сложные интерфейсы в <page-link href="http://edster.ru" aria-label="Edster">Edster</page-link> 👨‍💻
       </span>
-    </page-description>
-    <main class="main">
+      </page-description>
+    </header>
+    <main class="main" role="main">
       <section class="main__col">
-        <h3 class="page__h3">Мои поделки 💼</h3>
-        <ul class="list projects">
-          <li class="list__item projects__item" v-for="item in githubProjects">
-            <github-favicon class="projects__item-icon"></github-favicon>
-            <page-link class="projects__item-link" :href="item.url">{{item.title}}</page-link>
-            <span class="projects__item-text" v-html="' — ' + item.text"></span>
-          </li>
-        </ul>
-        <h3 class="page__h3">Пишу на Хабрахабр 📝</h3>
-        <ul class="list articles">
-          <li class="list__item articles__item" v-for="item in habrArticles">
-            <habr-favicon class="articles__item-icon"></habr-favicon>
-            <page-link class="articles__item-link" :href="item.url">{{item.title}}</page-link>
-          </li>
-        </ul>
+        <article tabindex="2">
+          <h3 class="page__h3">Мои поделки <span aria-hidden="true">💼</span></h3>
+          <ul class="list projects" role="list" aria-label="Список проектов на Гитхабе">
+            <li class="list__item projects__item" role="listitem" v-for="item in githubProjects">
+              <github-favicon class="projects__item-icon" aria-hidden="true"></github-favicon>
+              <page-link class="projects__item-link" :href="item.url">
+                {{item.title}}
+              </page-link>
+              <span class="projects__item-text" v-html="' — ' + item.text"></span>
+            </li>
+          </ul>
+        </article>
+        <article tabindex="4">
+          <h3 class="page__h3">Пишу на Хабрахабр <span aria-hidden="true">📝</span></h3>
+          <ul class="list articles" role="list" aria-label="Список статей на Хабре">
+            <li class="list__item articles__item" role="listitem" v-for="item in habrArticles">
+              <habr-favicon class="articles__item-icon" aria-hidden="true"></habr-favicon>
+              <page-link class="articles__item-link" :href="item.url">
+                {{item.title}}
+              </page-link>
+            </li>
+          </ul>
+        </article>
       </section>
       <section class="main__col">
-        <h3 class="page__h3">Что умею ✅</h3>
-        <techs-logos class="index-page__techs"></techs-logos>
-        <ul class="list list_bullets">
-          <li class="list__item" itemprop="keywords">JavaScript ES5, ES6, TypeScript, Node.js</li>
-          <li class="list__item" itemprop="keywords">SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx</li>
-          <li class="list__item" itemprop="keywords">REST API на Express, Koa, Yii по
-            <page-link href="http://jsonapi.org/">http://jsonapi.org/</page-link>
-            стандарт используя
-            <page-link href="http://json-schema.org/">http://json-schema.org/</page-link>
-            и
-            <page-link href="https://jwt.io/">https://jwt.io/</page-link>
-          </li>
-          <li class="list__item" itemprop="keywords">Полный стек БЭМ (Который у Яндекса), bem.js, bemjson, bh.js, bemtree</li>
-          <li class="list__item" itemprop="keywords">HTML5, CSS3, Stylus, Less, Sass, PostCSS и БЭМ методология</li>
-          <li class="list__item" itemprop="keywords">PHP 5/7, Yii1, Yii2</li>
-          <li class="list__item" itemprop="keywords">Сборщики Gulp, Grunt, Webpack 3 и ENB</li>
-          <li class="list__item">jQuery, ну а как без него?</li>
-        </ul>
-        <h3 class="page__h3">Что изучаю 👨‍🎓</h3>
-        <ul class="list">
-          <li class="list__item">Книгу
-            <page-link
-              href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
-              <s>The
-                Swift Programming Language</s></page-link>
-          </li>
+        <article tabindex="3">
+          <h3 class="page__h3">Что умею <span aria-hidden="true">✅</span></h3>
+          <techs-logos class="index-page__techs"></techs-logos>
+          <ul class="list list_bullets" aria-label="Список ключевых слов технологий" role="list">
+            <li class="list__item" itemprop="keywords" role="listitem">JavaScript ES5, ES6, TypeScript, Node.js</li>
+            <li class="list__item" itemprop="keywords" role="listitem">
+              SPA на React, Redux, MobX, ReactRouter, Vue.js, Vuex, VueRouter, Angular 2, NgRx
+            </li>
+            <li class="list__item" itemprop="keywords" role="listitem">REST API на Express, Koa, Yii по
+              <page-link href="http://jsonapi.org/">jsonapi</page-link>
+              стандарт используя
+              <page-link href="http://json-schema.org/">json schema</page-link>
+              и
+              <page-link href="https://jwt.io/">JWT</page-link>
+            </li>
+            <li class="list__item" itemprop="keywords" role="listitem">
+              Полный стек БЭМ (Который у Яндекса), bem.js, bemjson, bh.js, bemtree
+            </li>
+            <li class="list__item" itemprop="keywords" role="listitem">HTML5, CSS3, Stylus, Less, Sass, PostCSS и БЭМ методология</li>
+            <li class="list__item" itemprop="keywords" role="listitem">PHP 5/7, Yii1, Yii2</li>
+            <li class="list__item" itemprop="keywords" role="listitem">Сборщики Gulp, Grunt, Webpack 3 и ENB</li>
+            <li class="list__item" role="listitem">jQuery, ну а как без него?</li>
+          </ul>
+        </article>
+        <article tabindex="5">
+          <h3 class="page__h3">Что изучаю 👨‍🎓</h3>
+          <ul class="list" aria-label="Список книг которые читаю" role="list">
+            <li class="list__item" role="listitem">Книгу
+              <page-link
+                aria-label="Прочитал книгу The
+                Swift Programming Language"
+                href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+                <s>The
+                  Swift Programming Language</s></page-link>
+            </li>
 
-          <li class="list__item">
-            <page-link href="https://angular.io/docs/ts/latest/guide/"><s>Angular 2 Developer Guide</s></page-link>
-          </li>
+            <li class="list__item" role="listitem">
+              <page-link aria-label="Прочитал Angular 2 Developer Guide"
+                         href="https://angular.io/docs/ts/latest/guide/"><s>Angular 2 Developer Guide</s></page-link>
+            </li>
 
-          <li class="list__item">Книгу
-            <page-link href="https://rurust.github.io/rust_book_ru/">The Rust
-              Programming Language
-            </page-link>
-          </li>
+            <li class="list__item" role="listitem">Книгу
+              <page-link aria-label="Читаю книгу The Rust
+              Programming Language" href="https://rurust.github.io/rust_book_ru/">The Rust
+                Programming Language
+              </page-link>
+            </li>
 
-          <li class="list__item">
-            <page-link href="https://github.com/astaxie/build-web-application-with-golang/blob/master/ru/preface.md">
-              Build
-              Web Application with Golang
-            </page-link>
-          </li>
+            <li class="list__item" role="listitem">
+              <page-link aria-label="Читаю книгу Build
+              Web Application with Golang"
+                         href="https://github.com/astaxie/build-web-application-with-golang/blob/master/ru/preface.md">
+                Build
+                Web Application with Golang
+              </page-link>
+            </li>
 
-          <li class="list__item">Книгу
-            <page-link href="https://www.ozon.ru/context/detail/id/18322266/"><s>The
-              Lean Startup</s></page-link>
-          </li>
-          <li class="list__item">А еще решаю непростые задачки нa
-            <page-link href="https://www.codewars.com/users/JiLiZART">Codewars <span class="badge" :style="badgeStyle" title="Codewards Badge" ></span></page-link><br />
-            и
-            <page-link href="https://www.hackerrank.com/JiLiZART">Hackerrank</page-link>
-            с помощью js и Swift
-          </li>
-        </ul>
+            <li class="list__item" role="listitem">Книгу
+              <page-link aria-label="Прочитал книгу The Lean Startup"
+                         href="https://www.ozon.ru/context/detail/id/18322266/"><s>The
+                Lean Startup</s></page-link>
+            </li>
+            <li class="list__item" role="listitem">А еще решаю непростые задачки нa
+              <page-link aria-label="Профиль на Codewars" href="https://www.codewars.com/users/JiLiZART">Codewars <span
+                class="badge" :style="badgeStyle" title="Codewards Badge"></span></page-link>
+              <br/>
+              и
+              <page-link aria-label="Профиль на Hackerrank" href="https://www.hackerrank.com/JiLiZART">Hackerrank
+              </page-link>
+              с помощью js и Swift
+            </li>
+          </ul>
+        </article>
       </section>
     </main>
   </section>
