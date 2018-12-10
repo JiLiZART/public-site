@@ -3,6 +3,7 @@
  "short_name": "artkost",
  "display": "standalone",
  "theme_color": "#fcfaf8",
+ "background_color": "#fcfaf8",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
