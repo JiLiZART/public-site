@@ -8,5 +8,5 @@
     display block
     width 160px
     height 46px
-    background-image url('~/assets/logo.svg')
+    background-image url('~assets/logo.svg')
 </style>

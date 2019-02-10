@@ -1,5 +1,13 @@
 <template>
-  <footer class="footer" id="data-author" itemprop="author" itemscope itemtype="http://schema.org/Person" role="contentinfo" tabindex="6">
+  <footer
+    id="data-author"
+    class="footer"
+    itemprop="author"
+    itemscope
+    itemtype="http://schema.org/Person"
+    role="contentinfo"
+    tabindex="6"
+  >
     <HeadingSecondary>Со мной можно связаться 🤙</HeadingSecondary>
     <meta itemprop="name" content="Николай Костюрин">
     <PageText>По скайпу

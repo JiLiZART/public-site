@@ -1,6 +1,6 @@
 const modifyHtml = (html) => {
   // Remove every script tag from generated HTML
-  html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+  // html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
 
   html = html.replace('<head>', `<head>
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -20,15 +20,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 `)
 
   return html
-};
+}
 
 module.exports = {
-  /*
-  ** Headers of the page
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
-  */
+  mode: 'universal',
+
+  manifest: {
+    name: 'Николай Костюрин — JavaScript Разработчк',
+    lang: 'ru'
+  },
+
   head: {
     title: 'Николай Костюрин — JavaScript Разработчк',
     htmlAttrs: {
@@ -43,9 +44,11 @@ module.exports = {
       {name: 'msapplication-TileImage', content: '/ms-icon-144x144.png'},
       {name: 'theme-color', content: '#ffffff'},
 
-      {name: 'subject', content: 'Николай Костюрин — Fullstack Web Developer'}
+      {name: 'subject', content: 'Николай Костюрин — Fullstack Web Developer'},
+      {hid: 'description', name: 'description', content: 'Николай Костюрин — Fullstack Web Developer'}
     ],
     link: [
+      {rel: 'dns-prefetch', href: '//google-analytics.com'},
       {rel: 'apple-touch-icon', sizes: '57x57', href: '/apple-icon-57x57.png'},
       {rel: 'apple-touch-icon', sizes: '60x60', href: '/apple-icon-60x60.png'},
       {rel: 'apple-touch-icon', sizes: '72x72', href: '/apple-icon-72x72.png'},
@@ -66,6 +69,15 @@ module.exports = {
       {rel: 'me', href: 'mailto:nikolay@artkost.ru'}
     ]
   },
+
+  css: [],
+
+  plugins: [],
+
+  modules: [
+    '@nuxtjs/pwa'
+  ],
+
   /*
   ** Customize the progress bar color
   */
@@ -78,29 +90,35 @@ module.exports = {
     ** Run ESLint on save
     */
     extend(config, ctx) {
+      // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+        // config.module.rules.push({
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // })
       }
     }
   },
 
-  manifest: {
-    name: 'Николай Костюрин — JavaScript Разработчк',
-    lang: 'ru'
-  },
+  // generate: {
+  //   routes() {
+  //     return require('fs')
+  //       .readdirSync('blog').map(
+  //         (file) => '/blog/' + require('slugify')(file.replace(/\.md$/, ''))
+  //       )
+  //   }
+  // },
 
-  generate: {
-    routes() {
-      return require('fs')
-        .readdirSync('blog').map(
-          (file) => '/blog/' + require('slugify')(file.replace(/\.md$/, ''))
-        )
-    }
+  router: {
+    routes: [
+      {
+        name: 'home',
+        path: '/',
+        component: 'pages/index.vue'
+      }
+    ]
   },
 
   loading: false, // Disable loading bar since AMP will not generate a dynamic page
@@ -114,14 +132,8 @@ module.exports = {
       page.html = modifyHtml(page.html)
     },
     // This hook is called before rendering the html to the browser
-    'render:route': (url, page, { req, res }) => {
+    'render:route': (url, page, {req, res}) => {
       page.html = modifyHtml(page.html)
     }
-  },
-
-  modules: [
-    ['@nuxtjs/google-analytics', {
-      id: 'UA-10741741-2'
-    }]
-  ]
-};
+  }
+}

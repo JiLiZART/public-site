@@ -43,7 +43,7 @@
 
   $pageTextColor = hsl(0, 0%, 20%)
   $pageGrayTextColor = hsl(0, 0%, 40%)
-  $pageBackgroundColor = hsl(30, 40%, 98%)
+  $pageBackgroundColor = hsl(45, 40%, 99%)
 
   $phoneBreakpoint = 700px
 
