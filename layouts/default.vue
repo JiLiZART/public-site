@@ -1,40 +1,22 @@
 <template>
-  <div class="page" ref="page" itemref="data-author" itemscope itemtype="http://schema.org/WebSite">
+  <div ref="page" class="page" itemref="data-author" itemscope itemtype="http://schema.org/WebSite">
     <header class="header" aria-hidden="true">
-      <Logo></Logo>
+      <Logo />
     </header>
     <nuxt />
-    <Footer></Footer>
-    <img src="/stat.gif" alt="Stats pixel" layout="fixed" height="1px" width="1px" />
-    <noscript><div><img src="https://mc.yandex.ru/watch/860366" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <Footer />
   </div>
 </template>
 <script>
-  import Logo from '~/components/Logo.vue'
-  import Footer from '~/components/Footer.vue'
-  import PrimaryMenu from '~/components/PrimaryMenu.vue'
-  import HeadingSecondary from '~/components/HeadingSecondary'
-  import PageLink from '~/components/PageLink.vue'
-  import PageText from '~/components/PageText.vue'
-  import PageDescription from '~/components/PageDescription.vue'
+import Logo from '~/components/Logo.vue'
+import Footer from '~/components/Footer.vue'
 
-  export default {
-    components: {
-      Logo,
-      Footer,
-      PageLink,
-      PageText,
-      PageDescription,
-      HeadingSecondary,
-      PrimaryMenu
-    },
-
-    data() {
-      return {
-
-      }
-    }
+export default {
+  components: {
+    Logo,
+    Footer
   }
+}
 </script>
 
 <style lang="stylus">
@@ -51,6 +33,7 @@
     margin 0
     direction ltr
     font-family Rubik, NotoSans, Roboto, Helvetica, Arial, serif
+    font-size 18px
     font-weight 400
     line-height 1.3
     -webkit-font-smoothing subpixel-antialiased
@@ -63,11 +46,15 @@
 
   .main
     display flex
+    flex-direction column
     justify-content space-between
     flex-wrap wrap
 
     @media screen and (min-width: $phoneBreakpoint)
       flex-wrap nowrap
+
+  .main article
+    margin-bottom 1rem
 
   .page
     color $pageTextColor
@@ -76,6 +63,9 @@
     transition-property background, color
     transition-duration .33s
     transition-timing-function ease-out
+
+    @media screen and (min-width: $phoneBreakpoint)
+      padding 0 8%
 
     &__text
       margin 0
@@ -108,6 +98,9 @@
     &__text h3
       font-size 1.625rem
       font-weight 500
+
+      @media screen and (min-width: $phoneBreakpoint)
+        font-size 2.125rem
 
     &__p,
     &__text p
